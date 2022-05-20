@@ -1,0 +1,54 @@
+*CREAR AMBIENTE*
+python -m venv env
+
+*SELECCIONAR AMBIENTE*
+env\Scripts\activate
+
+*INSTALAR DJANGO*
+pip install django
+pip install djangorestframework
+
+* CREAR PROYECTO * 
+django-admin startproject NOMBRE
+
+*CREAR MODULO*
+django-admin startapp NOMBRE
+
+*CORRER SERVIDOR*
+python manage.py runserver
+
+* INSTALAR TOKENS*
+pip install djangorestframework-simplejwt
+
+* INSTALAR LIBRERIA POSTGRESQL *
+pip install psycopg2
+
+* MIGRAR ARCHIVOS *
+python manage.py migrate
+
+* CREAR USUARIO *
+python manage.py createsuperuser
+
+* *
+admin.site.register(Account)
+
+* CREAR ARCHIVO DE MIGRACION *
+python manage.py makemigrations
+
+* INSTALAR PROGRAMAS DESDE UN ARCHIVO *
+pip install -r requirements.txt
+
+* LOGEAR EN HEROKU * 
+heroku login
+
+* Volver una carpeta a un repositorio de git *
+git init
+
+* CREAR EL REMOTO *
+heroku git:remote -a NOMBRE-PROYECTO-HEROKU
+
+* CONECTAR LA CONSOLA CON EL SERVICIO DE DOCKER DE HEROKU*
+heroku container:login
+
+* CREAR LA IMAGEN *
+heroku container:push web --app NOMBRE-PROYECTO-HEROKU
