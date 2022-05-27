@@ -31,7 +31,7 @@ class Estudiante(models.Model):
     genero = models.CharField(max_length=50,choices=(
         ('Masculino','M',),
         ('Femenino','F',), 
-        ('Sin definir','Sin definir'),
+        ('Sindefinir','Sin definir'),
     ))
     matriculado = models.BooleanField(default=False)
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
