@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from authApp.models.estudiante import Estudiante
+from authApp.models.institucion import Institucion
 from .usuarioSerializer import UsuarioSerializer
 
-class EstudianteSerializer(serializers.ModelSerializer):
+class InstitucionSerializer(serializers.ModelSerializer):
     usuario = serializers.StringRelatedField()
 
     class Meta:
-        model = Estudiante
+        model = Institucion
         fields = '__all__'

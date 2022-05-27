@@ -30,6 +30,7 @@ SECRET_KEY = 'django-insecure-02s4zy@3311)-p*3po5pe_i7+=9zl9jy4srafzgae#833wb=zd
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Application definition
@@ -42,8 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'authApp'
+    'authApp',
+    'corsheaders',
+    'rest_framework.authtoken'
 ]
+
+TOKEN_EXPIRED_AFTER_SECONDS = 3600
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,7 +58,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
+
+AUTH_USER_MODEL = 'authApp.Usuario'
 
 ROOT_URLCONF = 'IMEE.urls'
 
@@ -158,9 +166,12 @@ SIMPLE_JWT = {
 REST_FRAMEWORK = {
    'DEFAULT_AUTHENTICATION_CLASSES': (
        'rest_framework.authentication.TokenAuthentication',
-   )
+   ),
 }
+
 
 # Heroku
 django_heroku.settings(locals())
+
+
 

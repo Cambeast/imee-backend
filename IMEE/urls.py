@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from authApp.views import TestViews, EstudianteView, EstudianteListCreateView, EstudianteRetriveUpdateDeleteView
+from authApp.views import TestViews, EstudianteView, EstudianteListCreateView, EstudianteRetriveUpdateDeleteView, usuarioViewset
+from authApp.views.usuarioViews import usuarioDetailView, usuarioDetailView
+from authApp.views.loginViews import Login, Logout, Usertoken
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', TestViews.as_view()),
     path('estudiantes/', EstudianteListCreateView.as_view()),
-    path('estudiante/<int:pk>/', EstudianteRetriveUpdateDeleteView.as_view())
+    path('estudiante/<int:pk>/', EstudianteRetriveUpdateDeleteView.as_view()),
+    path('profile/', usuarioViewset),
+    path('profile/<int:pk>/', usuarioDetailView),
+    path('login/',Login.as_view()),
+    path('logout/',Logout.as_view()),
+    path('refreh-token/',Usertoken.as_view())
 ]

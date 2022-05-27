@@ -1,13 +1,14 @@
 from django.db import models
+from .usuario import Usuario
 
 class Estudiante(models.Model):
     id = models.AutoField(primary_key=True)
     tipoIdent = models.CharField(max_length=50,choices=(
         ('TD','Tarjeta de identidad'),
     ))
-    identificacion = models.BigIntegerField()
-    nombres = models.CharField(max_length=50,default="")
-    apellidos = models.CharField(max_length=50,default="")
+    identificacion = models.BigIntegerField(unique=True)
+    nombres = models.CharField(max_length=50)
+    apellidos = models.CharField(max_length=50)
     fechaNacimiento = models.DateField()
     nacionalidad = models.CharField(max_length=50)
     direccion = models.TextField()
@@ -33,6 +34,7 @@ class Estudiante(models.Model):
         ('Sin definir','Sin definir'),
     ))
     matriculado = models.BooleanField(default=False)
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
 
 
 

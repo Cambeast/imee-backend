@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from authApp.models import Estudiante
 from authApp.serializers import EstudianteSerializer
 from rest_framework import generics
+from authApp.authentication_mixins import Authentication
 
 class TestViews(views.APIView):
 
@@ -25,7 +26,7 @@ class EstudianteView(views.APIView):
         serialized = EstudianteSerializer(queryset, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
     
-class EstudianteListCreateView(generics.ListCreateAPIView):
+class EstudianteListCreateView(Authentication,generics.ListCreateAPIView):
     queryset = Estudiante.objects.all()
     serializer_class = EstudianteSerializer
 

@@ -1,1 +1,3 @@
 from .estudianteSerializer import EstudianteSerializer
+from .usuarioSerializer import UsuarioSerializer
+from .institucionSerializer import InstitucionSerializer
